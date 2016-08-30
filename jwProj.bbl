@@ -1,0 +1,65 @@
+\begin{thebibliography}{{Jon}00}
+
+\bibitem[CK10]{JWcateg}
+B.~{Cooper} and V.~{Krushkal}.
+\newblock Categorification of the {J}ones-{W}enzl projectors.
+\newblock {\em ArXiv e-prints}, May 2010.
+
+\bibitem[FK97]{frenkel1997}
+I.~{Frenkel} and M.~{Khovanov}.
+\newblock Canonical bases in tensor products and graphical calculus for
+  $u_q(\mathfrak{sl}_2)$.
+\newblock {\em Duke Math. J.}, 87(3):409--480, 04 1997.
+
+\bibitem[FSS10]{JWcateg2}
+I.~{Frenkel}, C.~{Stroppel}, and J.~{Sussan}.
+\newblock Categorifying fractional euler characteristics, {J}ones-{W}enzl
+  projector and \$3j\$-symbols.
+\newblock {\em ArXiv e-prints}, July 2010.
+
+\bibitem[{Jon}99]{Jones}
+V.~F.~R. {Jones}.
+\newblock {Planar algebras, I}.
+\newblock {\em ArXiv Mathematics e-prints}, September 1999.
+
+\bibitem[{Jon}00]{JonesGPA}
+V.~F.~R. {Jones}.
+\newblock {The planar algebra of a bipartite graph}.
+\newblock {\em Knots in Hellas '98}, 24:94--117, 2000.
+
+\bibitem[KL94]{Kauffman}
+L.~{Kauffman} and S.~{Lins}.
+\newblock {\em Temperley-Lieb Recoupling Theory and Invariants of 3-Manifolds}.
+\newblock Princeton University Press, 1994.
+
+\bibitem[LT71]{TL}
+H.~N.~V. {Lieb} and E.~H. {Temperley}.
+\newblock {Relations between the 'Percolation' and 'Colouring' Problem and
+  other Graph-Theoretical Problems Associated with Regular Planar Lattices:
+  Some Exact Results for the 'Percolation' Problem}.
+\newblock {\em Proceedings of the Royal Society of London.}, pages 251--280,
+  April 1971.
+
+\bibitem[{Mor}]{Morr}
+S.~{Morrison}.
+\newblock A formula for the {J}ones-{W}enzl projections.
+\newblock Unpublished. Available at
+  https://tqft.net/math/JonesWenzlProjections.pdf.
+
+\bibitem[MPS08]{D2n}
+S.~{Morrison}, E.~{Peters}, and N.~{Snyder}.
+\newblock Skein theory for the d$_{2n}$ planar algebras.
+\newblock {\em ArXiv e-prints}, August 2008.
+
+\bibitem[OY97]{GenJW}
+T.~{Ohtsuki} and S.~{Yamada}.
+\newblock Quantum su(3) invariant of 3-manifolds via linear skein theory.
+\newblock {\em Journal of Knot Theory and Its Ramifications}, 06(03):373--404,
+  1997.
+
+\bibitem[Wen87]{Wenzl}
+H.~Wenzl.
+\newblock On sequences of projections.
+\newblock {\em C. R. Math. Rep. Acad. Sci. Canada}, 9(1):5--9, 1987.
+
+\end{thebibliography}

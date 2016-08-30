@@ -1,0 +1,29 @@
+\begin{tikzpicture}[mystyle] 
+
+%\draw [thin] (-1.1,-.9) rectangle (1.1,.9);
+
+%\draw[
+%        decoration={markings, mark=at position 0.125 with {\arrow{<}}},
+%        postaction={decorate}
+%        ]
+%        (-.65,0) circle (2mm);
+%\circles{-.7}{0}{n}{>}
+\draw[->] (-0.6,0)  arc(0:400:0.2) node[right]{$n$};
+
+
+
+\draw[
+        decoration={markings, mark=at position 0.2 with {\arrow{<}}},
+        postaction={decorate}
+        ]
+        (-0.0,-0.9) --(-0.0,0.9); 
+\draw (0.25,-0.45) node  {$n$};
+
+\draw[
+        decoration={markings, mark=at position 0.2 with {\arrow{<}}},
+        postaction={decorate}
+        ]
+        (0.65,0.9) --(0.65,-0.9); 
+\draw (0.9,0.45) node  {$n$};
+
+\end{tikzpicture}

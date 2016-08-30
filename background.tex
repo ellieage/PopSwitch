@@ -1,0 +1,381 @@
+% !TEX root = ../jwProj.tex
+
+For convenience, we work over the field $\mathbb{C}$
+and let $q$ be a nonzero complex number that is not a root of unity.
+Many of the results hold over other fields,
+but if $q$ is a root of unity
+the proofs fail due to division by zero.
+
+\begin{defn}
+The $n$th {\em quantum number} is defined as 
+$$[n] = [n]_q = \frac{q^n-q^{-n}}{q-q^{-1}}$$
+and the {\em quantum binomial} is defined as
+$$\qbinom{n}{k}=\frac{[n][n-1]\cdots[n-k+1]}{[k][k-1]\cdots[1]}$$
+where $0 \le k \le n$ are natural numbers.
+\end{defn}
+
+We have the following identities.
+
+\begin{lem}
+\label{lem:q}
+$[k+l]=[k][l+1] - [k-1][l]$.
+\end{lem}
+
+\begin{proof}
+This follows from the definition and a simple computation.
+\end{proof}
+
+\begin{cor}
+\label{cor:q}
+$\qbinom{k+l}{l}=[l+1]\qbinom{k+l-1}{l}-[k-1]\qbinom{k+l-1}{l-1}$.
+\end{cor}
+
+\begin{proof}
+After taking a common denominator and cancelling common terms,
+this reduces to the previous lemma.
+\end{proof}
+
+\subsection{Planar algebras}
+
+We won't define planar algebras in great detail.
+See Jones' original paper \cite{Jones} for a formal definition.
+See \cite{D2n} for a helpful introduction.
+
+We will use what are sometimes called {\em vanilla} planar algebras.
+These lack any of the optional extra features or properties
+that are often included in the definition.
+
+A planar tangle $T$ consists of:
+\begin{itemize}
+\item a disk $D$ called the {\em output disk},
+\item a finite set of disjoint disks $D_i$ called the {\em input disks}
+      in the interior of $D$,
+\item a point called a {\em basepoint}
+      of $\partial D$ and of each $\partial D_i$, and
+\item a collection of disjoint curves called {\em strands} in $D$.
+\end{itemize}
+The strands can be closed curves,
+or can have endpoints on $\partial D$
+or $\partial D_i$ or both.
+Apart from the endpoints,
+the strands lie in the interior of $D$
+and do not intersect $D_i$.
+The basepoints do not coincide with endpoints of strands.
+Planar tangles are considered up to isotopy in the plane.
+
+It is sometimes possible to
+insert a planar tangle $T_1$
+into one of the input disks of another planar tangle $T_2$
+to obtain a new planar tangle.
+Specifically,
+this is possible if
+the number of endpoints on the output disk of $T_1$
+is the same as the number of endpoints
+on the chosen input disk of $T_2$.
+Then we can use an isotopy to make the endpoints match up.
+This still leaves an ambiguity of how to rotate $T_1$.
+The basepoints remove this ambiguity:
+we require the basepoint of the output disk of $T_1$
+to coincide with the basepoint of the chosen input disk of $T_2$.
+
+The planar tangles,
+together with this operation of inserting one planar tangle
+into an input disk of another,
+form a rather general type of algebraic gadget called an
+{\em operad}.
+Briefly,
+a planar algebra
+is a representation of the operad of planar tangles.
+
+More concretely,
+a planar algebra $\mathcal{P}$ is a sequence of vector spaces 
+$\mathcal{P}_i$ for $i \ge 0$.
+Suppose $T$ is a planar tangle
+with input disks $D_1, \dots, D_n$.
+Let $d_i$ be the number of endpoints on $\partial D_i$
+and let $d$ be the number of endpoints on $\partial D$.
+Suppose $v_i \in \mathcal{P}_{d_i}$ for all $i$.
+Then there is an action of $T$
+$$T(v_1, \dots, v_n) \in \mathcal{P}_d.$$
+The action of planar tangles
+must be multilinear,
+and it must be compatible with the operad structure
+in a natural sense.
+
+The definition of a planar algebra may seem complicated.
+However it formalizes a fairly simple idea,
+familiar to knot theorists,
+of tangle-like diagrams
+that can be glued together in arbitrary planar ways.
+Perhaps the main novelty
+is that we allow
+formal linear combinations of diagrams,
+which glue together in a multilinear way.
+
+An example might help.
+
+\subsection{The Temperley-Lieb planar algebra}
+
+The simplest planar algebra is
+the Temperley-Lieb planar algebra $\mathcal{TL}$.
+The vector space $\mathcal{TL}_i$
+is spanned by tangle diagrams that have no input disks
+and $i$ endpoints on the output disk.
+
+There is one relation.
+A closed loop in a diagram
+may be deleted
+at the expense of multiplying by the scalar $q + q^{-1}$.
+We call this the {\em bubble-bursting relation}.
+
+If $i$ is odd then $\mathcal{T}_i$ is zero.
+A basis for $\mathcal{T}_{2n}$
+is given by tangle diagrams
+that have $n$ strands and no closed loops.
+
+In practice,
+most planar algebras
+can be thought of as formal linear combinations of diagrams
+that are similar to Temperley-Lieb diagrams,
+but with optional extra features,
+like crossings, orientations, colors, or vertices.
+
+\subsection{The category corresponding to a planar algebra}
+
+Suppose $\mathcal{P}$ is a planar algebra.
+We now describe how $\mathcal{P}$ can be thought of as a category.
+In this context,
+the input and output disks in the definition of $\mathcal{P}$
+should be thought of as rectangles instead of round disks.
+
+The category $\mathbf{C}$ corresponding to $\mathcal{P}$ is as follows.
+\begin{itemize}
+\item The objects are the non-negative integers.
+\item The morphisms from $i$ to $j$
+      are the elements of $\mathcal{P}_{i+j}$,
+      thought of as having $i$ endpoints on the bottom of the rectangle
+      and $j$ on the top.
+\item The composition $f \circ g$
+      is given by stacking $f$ on top of $g$.
+\end{itemize}
+
+Let $\mathcal{P}^j_i$ denote $\mathcal{P}_{i+j}$
+with the elements treated as morphisms from $i$ to $j$.
+
+An idempotent
+is an element $p$ of $\mathcal{P}^n_n$
+such that $p^2 = p$.
+
+
+We can expand the objects in the category
+by a construction known as the {\em Karoubi envelope}.
+This new category $\mathbf{C}'$ is defined as follows.
+\begin{itemize}
+\item The objects of $\mathbf{C}'$ are
+      the idempotents of $\mathbf{C}$.
+\item The morphisms from $p$ to $q$
+      are morphisms in $\mathbf{C}$ of the form $qxp$.
+\end{itemize}
+
+Next, note that
+$\mathbf{C}$ and $\mathbf{C}'$
+are also tensor categories,
+where $x \otimes y$
+is obtained by placing $x$ to the left of $y$.
+
+Finally,
+we can define a {\bf matrix category} of $\mathbf{C}'$.
+The objects are formal direct sums of objects of $\mathbf{C}'$
+and the morphisms are formal matrices.
+Instead of this abstract definition,
+all we need is the following lemma.
+
+\begin{lem} \label{lem:dirSum}
+Suppose $p$ and $q_1,\dots,q_n$ are idempotents such that
+$$p = q_1 + \dots + q_n,$$
+and $q_i q_j = 0$ whenever $i \neq j$.
+Then 
+$$p \simeq q_1 \oplus \dots \oplus q_n.$$
+\end{lem}
+
+\subsection{Jones-Wenzl idempotents}
+
+The Jones-Wenzl idempotent $p_n$
+is the unique element of $\mathcal{TL}^n_n$
+such that
+\begin{itemize}
+\item $p_n \neq 0$
+\item $p_n^2 = p_n$
+\item $a p_n = 0$ if $a$ is any diagram
+      that includes a strand with both endpoints at the bottom of the rectangle.
+\item $p_n b = 0$ if $b$ is any diagram
+      that includes a strand with both endpoints at the top of the rectangle.
+\end{itemize}
+
+% \begin{nota}
+% Let $\input{intro/diagrams/pn.tex}$ $= p_n$.
+% \end{nota}
+
+Because of these last two properties, the Jones-Wenzl idempotents are sometimes referred to as ``uncappable."
+If $q$ is a root of unity,
+the Jones-Wenzl idempotents do not exist for all $n$.
+%http://mathoverflow.net/questions/138213/when-are-jones-wenzl-projectors-defined
+
+
+% vvvvvvvvvvvvvvv MOVED vvvvvvvvvvvvvvvvvv
+
+%\subsection{The pop-switch planar algebra}
+
+%\begin{defn}\label{def:pspa}
+%Let the pop-switch planar algebra $\mathcal{PSPA}$ be the planar algebra generated by oriented strands modulo the following relations.
+%\begin{enumerate}
+
+%\item The pop-switch relations
+%$$\input{intro/diagrams/ps3.tex} = \input{intro/diagrams/ps4.tex}, \quad
+%\input{intro/diagrams/ps1.tex} = \input{intro/diagrams/ps2.tex}$$
+
+%\item The bubble-bursting relation
+%$$\raisebox{-4pt}{\tikz \draw[->] (0,0) +(90:0.2) arc(90:460:0.2);} +
+%  \raisebox{-4pt}{\tikz \draw[->] (0,0) +(90:0.2) arc(460:90:0.2);} =
+%  (q + q^{-1}) \epsilon,$$
+%where $\epsilon$ denotes the empty diagram.
+%\end{enumerate}
+%\end{defn}
+
+%\begin{mainthm}
+%\label{thm:main}
+%The $n$th Jones-Wenzl idempotent is isomorphic to a direct sum of $n+1$ diagrams:
+%$$p_n \simeq
+%\raisebox{-0.5cm}{\tikz \draw[->](0,0) -- (0,1) node[inner sep=0.1,below right]{$n$};}
+%\oplus
+%\raisebox{-0.5cm}{\begin{tikzpicture} 
+%    \draw[->](0,1) -- (0,0);
+%    \draw[->](0.4,0) -- (0.4,1) node[inner sep=0.3,below right]{$n$};
+%    \draw[->](0.8,1) -- (0.8,0);
+%    \end{tikzpicture}}
+%\oplus
+%\dots
+%\oplus
+%\raisebox{-0.5cm}{\begin{tikzpicture}
+%    \draw[->](0,1) -- (0,0) node[inner sep=0.3,above left]{$n$};
+%    \draw[->](0.4,0) -- (0.4,1) node[inner sep=0.3,below left]{$n$};
+%    \draw[->](0.8,1) -- (0.8,0) node[inner sep=0.1,above right]{$n$};
+%    \end{tikzpicture}}
+%$$
+%\end{mainthm}
+
+% ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+%Denote the right hand side as $q_n$.  The isomorphisms will be $f\in \text{Hom} (p_n,q_n)$ and $g\in \text{Hom}(q_n,p_n)$.  To prove $f$ and $g$ are isomorphisms, we must show $f\circ g=q_n=id\in \text{Hom}(q_n,q_n)$ and $g\circ f=p_n=id\in \text{Hom}(p_n,p_n)$
+
+%We break $p_n$ into $n+1$ smaller sums, matching each with the appropriate summand of $q_n$.
+%We break $p_n$ into $n+1$ smaller sums, and show each is isomorphic to one of the $n+1$ summands in $q_n$.  
+%Then we can put all $n+1$ isomorphisms into a matrix to give the needed isomorphism between $p_n$ and $q_n$.  We break up $p_n$ in such a way that non-matching terms compose to zero by exploiting the fact that diagrams with non-matching orientations on strands yield zero.  Thus ensuring $f\circ g$ is a direct sum.
+
+%We use the fact that $p_n$ is an idempotent, $p_n=p_n^2=p_n id_n p_n$.  The $id_n$ is a sum of $2^n$ different ways of orienting $n$ vertical strands.  Break this sum into $n+1$ sums depending on whether $0, 1, 2, \ldots, n$ strands are oriented up.
+
+%\begin{nota}
+%Let $p^k_l$
+%$$\begin{tikzpicture}[mystyle] 
+%\draw [] (-.6,-.3) rectangle (.6,-.4);
+%\draw [] (-.6,.3) rectangle (.6,0.4);
+%\draw (0.0,0.0) node (k) {$k,l$};
+%\end{tikzpicture}$$
+%denote the sum of $\binom{k+l}{l}$ diagrams
+%obtained from $p_{k+l} \mathrm{id}_{k+l} p_{k+l}$
+%by orienting $k$ of the strands in the identity $\mathrm{id}_{k+l}$ up
+%and the remaining $l$ strands down.
+%\end{nota}
+
+%\begin{lem}
+%$p_n \simeq p^0_n \oplus \dots \oplus p^n_0$.
+%\end{lem}
+
+%\begin{proof}
+%First,
+%each $p^k_l$ is an idempotent.
+
+%Next,
+%$p_n = p_n \mathrm{id}_n p_n$.
+%This is equal to the sum of $2^n$ diagrams
+%obtained by orienting the $n$ vertical edges in $\mathrm{id}_n$.
+%Thus
+%$p_n = p^0_n + \dots + p^n_0$.
+
+%Finally,
+%they're ``orthogonal'' idempotents.
+%\end{proof}
+
+
+%$p_n=$ 
+%\begin{tikzpicture}[mystyle] 
+%\draw [] (-.6,-.3) rectangle (.6,-.4);
+%\draw [] (-.6,.3) rectangle (.6,0.4);
+%\draw (0.0,0.0) node (k) {$n,0$};
+%\end{tikzpicture}
+%$+$
+%\begin{tikzpicture}[mystyle] 
+%\draw [] (-.6,-.3) rectangle (.6,-.4);
+%\draw [] (-.6,.3) rectangle (.6,0.4);
+%\draw (0.0,0.0) node (k) {$n-1,1$};
+%\end{tikzpicture}
+%$+$
+%\begin{tikzpicture}[mystyle] 
+%\draw [] (-.6,-.3) rectangle (.6,-.4);
+%\draw [] (-.6,.3) rectangle (.6,0.4);
+%\draw (0.0,0.0) node (k) {$n-2,2$};
+%\end{tikzpicture}
+%$+\cdots+$
+%\begin{tikzpicture}[mystyle] 
+%\draw [] (-.6,-.3) rectangle (.6,-.4);
+%\draw [] (-.6,.3) rectangle (.6,0.4);
+%\draw (0.0,0.0) node (k) {$1,n-1$};
+%\end{tikzpicture}
+%$+$
+%\begin{tikzpicture}[mystyle] 
+%\draw [] (-.6,-.3) rectangle (.6,-.4);
+%\draw [] (-.6,.3) rectangle (.6,0.4);
+%\draw (0.0,0.0) node (k) {$n,0$};
+%\end{tikzpicture}
+
+%In Lemma \ref{lem:light} we match the $n+1$ sums in $p_n$ with the $n+1$ summands in $q_n$, showing each
+
+%$
+% \text{\input{mainThm/diagrams/kl.tex} } \cong
+%    \begin{cases}
+%      
+%    \hspace{.3cm}\input{mainThm/diagrams/kl_iso_kbtl.tex} 
+
+%, & \text{if}\ k\geq l \\[1.0cm]
+%    \hspace{.3cm}\input{mainThm/diagrams/kl_iso_lbtk.tex} 
+
+%, & \text{if}\ k< l 
+%    \end{cases}
+%$
+
+%by $f_{k,l}$ and $g_{k,l}$.
+
+%When we compose $f_{k,l}\circ g_{k,l}$, we have a Jones-Wenzl idempotent in the middle.  When expanding the Jones-Wenzl idempotent only one diagram is nonzero.  Thus we were able to avoid a large sum of diagrams.  The coefficient is found in Lemma \ref{lem:fish}. 
+
+%Composing $g_{k,l}\circ f_{k,l}$ yields $(-1)^{kl} \qbinom{k+l}{l} X_{k,l}$ where 
+ 
+% $
+%    X_{k,l}=
+%    \begin{cases}
+      
+%\scalebox{1.0}{\input{mainThm/diagrams/x_kbtl.tex}}
+
+%, & \text{if}\ k\geq l \\[1.5cm]
+%      \scalebox{1.0}{\input{mainThm/diagrams/x_lbtk.tex}}
+%, & \text{if}\ k\leq l 
+%    \end{cases}
+%$.
+
+%Theorem \ref{thm:pn} shows that $\begin{tikzpicture}[mystyle] 
+%\draw [] (-.6,-.3) rectangle (.6,-.4);
+%\draw [] (-.6,.3) rectangle (.6,0.4);
+%\draw (0.0,0.0) node (k) {$k,l$};
+%\end{tikzpicture}
+%=(-1)^{kl} \qbinom{k+l}{l} X_{k,l}
+%$ by induction on $k+l$.  
+

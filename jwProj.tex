@@ -1,0 +1,136 @@
+\documentclass[10pt]{amsart}
+\pdfoutput=1
+\usepackage{amssymb}
+\usepackage{graphicx}
+%\usepackage[pdftex]{graphicx}
+\usepackage{tikz}
+%\usepackage{scalefnt}
+\usepackage{ifthen}
+
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{decorations.pathreplacing} 
+
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{rmk}[thm]{Remark}
+\newtheorem*{clm}{Claim}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{nota}[thm]{Notation}
+\newtheorem*{mainthm}{The Main Theorem}
+
+\newenvironment{claim}[1]{\par\noindent\underline{Claim:}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent\underline{Proof:}\space#1}{\hfill $\blacksquare$}
+
+
+
+\everymath{\displaystyle}
+
+
+\newcommand{\qbinom}[2]{\genfrac{[}{]}{0pt}{}{#1}{#2}}
+\newcommand{\id}{\mathrm{id}}
+\newcommand\bigzero{\makebox(0,0){\text{\huge0}}}
+
+
+
+%Positive orientation
+% horz placement, vert placement,number of strands
+\newcommand{\betaP}[3] {%
+    \draw[->] (#1+0.2,#2+0.0)  arc(0:400:0.2) node[right]{$#3$};
+}
+
+%Negative orientation
+\newcommand{\betaN}[3] {%
+    \draw[<-] (#1+0.2,#2+0.0)  arc(0:400:0.2) node[right]{$#3$};
+}
+
+
+% horz placement, vert placement,number of strands, orientation
+\newcommand{\circles}[4] {%
+    \draw[
+        decoration={markings, mark=at position 0.25 with {\arrow{#4}}},
+        postaction={decorate}
+        ]
+ (#1,#2) circle (0.2cm);
+\draw (#1+.05,#2+0.3) node[anchor=west]  {$#3$};
+\draw (#1-.05,#2-0.3) node  {\phantom{$#3$}};
+}
+
+%%top height, depth, center location, number of strands, orientation 
+%%Can go up if make depth negative
+\newcommand{\arc}[5] {%
+   \draw[rounded corners=.25cm,
+        decoration={markings, mark=at position 0.5 with {\arrow{#5}}},
+        postaction={decorate}]
+   (#3-0.3,#1) --(#3-0.3,#1-#2) --(#3+0.3,#1-#2)--(#3+0.3,#1) ;
+\draw (#3+.4,#1-#2) node  {$#4$};
+}
+
+
+
+%==============================================================
+\title{The pop-switch planar algebra and the Jones-Wenzl idempotents}
+
+
+\author{Ellie~Grano}
+\address{Ellie Grano, Pepperdine University-NASC, 
+24255 Pacific Coast Hwy, 
+Malibu, CA 90263-4321}
+\email{ellie.grano@pepperdine.edu}
+
+\author{Stephen~Bigelow}
+\address{Stephen Bigelow, Dept of Math, South Hall Room 6607, University of California, Santa Barbara, CA93106}
+\email{bigelow@math.ucsb.edu}
+\date{}
+
+
+\begin{document}
+
+\tikzset{mystyle/.style={baseline=(current bounding box), scale=0.8, every node/.style={transform shape}}}
+
+
+\begin{abstract}
+
+The Jones-Wenzl idempotents are elements of the Temperley-Lieb planar algebra
+that are important, but complicated to write down.  
+We will present a new planar algebra, the pop-switch planar algebra, which contains the Temperley-Lieb planar algebra.
+It is motivated by Jones' idea of the graph planar algebra of type $A_n$.
+In the tensor category of idempotents of the pop-switch planar algebra,
+the $n$th Jones-Wenzl idempotent is isomorphic to a direct sum of $n+1$ diagrams consisting of only vertical strands.
+\end{abstract}
+
+
+\maketitle
+
+\section{Introduction}
+\label{sec:intro}
+\input{./intro.tex}
+
+\section{Background}
+\input{./background.tex}
+
+\section{The pop-switch planar algebra}
+\label{sec:pspa}
+\input{./pspa.tex}
+
+
+\section{Proof of the main theorem}
+\label{sec:proof}
+\input{./mainThm.tex}
+
+
+\section{Graph planar algebra and the Temperley-Lieb planar algebra}
+\label{sec:gpa}
+\input{./gpa.tex}
+
+
+\bibliographystyle{alpha}
+\bibliography{jwProj}
+
+
+\end{document}

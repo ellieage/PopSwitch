@@ -1,0 +1,18 @@
+\begin{tikzpicture}[baseline,scale=0.8, every node/.style={transform shape}]
+
+\draw[ decoration={markings, mark=at position 0.7 with {\arrow{>}}},
+        postaction={decorate}]
+   (0.0,-1.0)--(0.0,1.0) ;
+\draw[ decoration={markings, mark=at position 0.7 with {\arrow{>}}},
+        postaction={decorate}]
+   (-0.4,-1.0)--(-0.4,1.0) ;
+
+ \node at (0.35,0) {...};
+\draw[ decoration={markings, mark=at position 0.7 with {\arrow{>}}},
+        postaction={decorate}]
+   (0.7,-1.0)--(0.7,1.0) ;
+
+
+\draw [decorate,decoration={brace,amplitude=.15cm},rotate=0] (-.6,1.1) -- (.9,1.1);
+\draw (.15,1.5) node  {$n$};
+\end{tikzpicture}

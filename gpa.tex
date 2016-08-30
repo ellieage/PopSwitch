@@ -1,0 +1,95 @@
+% !TEX root = ./jwProj.tex
+
+This section is motivation
+for the definition of the pop-switch planar algebra.
+We start with a summary of the definition of the graph planar algebra,
+first defined in \cite{JonesGPA}.
+
+Throughout this section,
+fix a simple graph $\Gamma$.
+For Jones, all planar algebras are shaded,
+and $\Gamma$ is required to be bipartite.
+We will ignore this issue.
+
+Let $\mu$ be a function from the vertices of $\Gamma$ to $\mathbf{R}_{>0}$.
+We will define the graph planar algebra $\mathcal{P}$
+corresponding to $(\Gamma, \mu)$.
+
+For each $k > 0$,
+let $\mathcal{P}_{2k}$ be the vector space of complex valued functions
+on the set of loops of length $2k$ on $\Gamma$.
+
+Suppose $T$ is a tangle.
+For each input disk of $T$,
+let $v_b$ be a corresponding input vector.
+We must define a corresponding output vector $v$.
+Thus we must define
+$v(\gamma)$ for every loop $\gamma$ in $\Gamma$
+that has length equal to the number of endpoints on the outer boundary of $T$.
+
+A {\em state} $\sigma$ of $T$ is a function
+from the set of regions of $T$ to the set of vertices of $\Gamma$
+such that adjacent regions are sent to adjacent vertices.
+
+Suppose $r$ is a region of $T$.
+This is a planar surface with boundary
+that may include some right-angled corners.
+The {\em Euler measure} $e(r)$
+is defined in a similar way to the Euler characteristic,
+using the usual formula $V - E + F$ for a triangulation of $r$.
+The difference is,
+every corner must be a vertex and only counts as $\frac{1}{4}$,
+any other vertex on a boundary only counts as $\frac{1}{2}$,
+and every edge on a boundary only counts as $\frac{1}{2}$.
+
+We are finally ready to define the image vector $v$
+of the vectors $v_b$
+under the action of the tangle $T$.
+$$
+v(\gamma) =
+\sum_\sigma
+\left( \prod_r \mu(\sigma(r))^{e(r)} \right)
+\left( \prod_b v_b(\sigma|_{\partial b}) \right).
+$$
+The sum is over all states $\sigma$ that are compatible with $\gamma$.
+The first product is over all regions $r$ of $T$.
+The second product is over all input disks $b$ of $T$.
+
+The Temperley-Lieb planar algebra
+is a subfactor planar algebra of type $A_\infty$.
+It can be found inside
+the graph planar algebra associated to $\Gamma = A_\infty$,
+which is the ray with vertices indexed by positive integers.
+The function $\mu$
+assigns the quantum integer $[n]$ to the $n$th vertex.
+(Note we are still assuming $q$ is not a root of unity.
+If $q$ is a primitive $(n+1)$th root of unity
+then we should use the graph $A_n$.)
+
+Suppose $T$ is an oriented tangle.
+Define a state of $T$
+to be a function from the set of regions of $T$
+to the set of vertices of $A_\infty$
+such that,
+for any strand of $T$,
+if the region to its right is sent to vertex $n$
+then the region to its left is sent to vertex $n+1$.
+Thus,
+a state is determined by the vertex associated to a single region.
+In a sense,
+the orientation on the strands
+removes the ambiguity in the state of a Temperley-Lieb diagram.
+
+Now suppose $T$ and $T'$ differ by a pop-switch relation.
+There is an obvious correspondence between
+states of $T$ and states off $T'$.
+Furthermore,
+the total Euler measure of the region associated to any given vertex is the same.
+We therefore have
+a well-defined embedding
+of the pop-switch planar algebra
+in the graph planar algebra of the graph $A_\infty$.
+
+One can think of the pop-switch planar algebra
+as a diagrammatic way to keep track of
+computations inside the graph planar algebra of $A_\infty$.

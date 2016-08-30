@@ -1,0 +1,30 @@
+\begin{tikzpicture}[mystyle] 
+
+%\draw [thin] (-1.1,-.9) rectangle (1.1,.9);
+
+%\draw (-1.1,1.1) node (a) {$[n-1]$};
+%\draw (0.15,1.1) node (b) {$[n]$};
+%\draw (1.55,0.0) node (c) {$[n-1]$};
+%\draw (0.15,-1.1) node (d) {$[n]$};
+
+%\draw[
+%        decoration={markings, mark=at position 0.125 with {\arrow{<}}},
+%        postaction={decorate}
+%        ]
+%        (-.65,0) circle (2mm);
+\circles{-.65}{0}{}{>}
+
+
+%\draw (#1+.25,#2+0.3) node  {$#3$};
+\draw[
+        decoration={markings, mark=at position 1.0 with {\arrow{>}}},
+        postaction={decorate}
+        ]
+        (-0.1,-0.9) --(-0.1,0.9); 
+\draw[
+        decoration={markings, mark=at position 1.0 with {\arrow{>}}},
+        postaction={decorate}
+        ]
+        (0.4,0.9) --(0.4,-0.9); 
+
+\end{tikzpicture}
